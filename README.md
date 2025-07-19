@@ -187,3 +187,6 @@ Reflash the original firmware (scatter + SP Flash Tool).
 Restore stock boot image if needed.
 Maintained by: **[paulnejaa](https://github.com/paulnejaa)**  
 
+
+This repository is licensed under the MIT License.
+Use at your own risk. I am not responsible for bricked devices or data loss.
