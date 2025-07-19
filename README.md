@@ -1,142 +1,189 @@
-# Ulefone Power Armor 14 Pro - Magisk Rooted Boot Image and Firmware
 
-This repository contains a **Magisk-patched boot image** and the original **stock firmware** for the Ulefone Power Armor 14 Pro.  
-These files can be used to root your device using **SP Flash Tool** on Windows or Linux.
+# Ulefone Power Armor 14 Pro – Bootloader Unlock and Magisk Root Guide
 
-**DISCLAIMER**: This is for educational and personal use only. Rooting your device will void the warranty and may result in a **soft-brick or hard-brick** if not done properly. Proceed at your own risk.
+This repository provides all the necessary resources and step-by-step instructions to unlock the bootloader and root the **Ulefone Power Armor 14 Pro (MT6768 / Helio G85)** using **Magisk**. It includes the patched boot image, stock boot image, and a full guide intended for advanced users.
 
 ---
 
-##  Included Files
+## Disclaimer
 
-- `/img/boot.img` — Original unmodified boot image.
-- `/img/magisk_patched.img` — Boot image patched using Magisk.
-- `/firmware/` — Full official firmware for the Ulefone Power Armor 14 Pro.
-- `/firmware/MT6768_Android_scatter.txt` — Scatter file used by SP Flash Tool.
+Unlocking the bootloader and flashing custom images **will erase all data** on your device and may void your warranty. There is also a risk of bricking your phone if you do something wrong. Proceed **at your own risk**. Always make backups before continuing.
 
 ---
 
-## Device Information
+## Repository Content
 
-- **Model:** Ulefone Power Armor 14 Pro  
-- **Chipset:** MediaTek Helio G85 (MT6768)  
-- **Architecture:** ARM64  
-- **Android Version:** Android 12 (may vary by region)  
-- **Status:** Tested and confirmed working on my personal device
-
----
-
-## Warnings & Risks
-
-- Rooting **voids the warranty** of your device.
-- A wrong flash can **brick your phone**. Always double-check.
-- This will **erase user data** if you perform a full firmware flash.
-- Only flash the **boot image** if your goal is to root, not the full ROM.
+| File Name            | Description                                        |
+|----------------------|----------------------------------------------------|
+| `boot.zip`           | Original stock boot.img extracted from firmware    |
+| `magisk_patched.zip` | Boot image patched with Magisk v26.4               |
+| `README.md`          | This instruction manual                            |
 
 ---
 
-## Prerequisites
+## Requirements
 
-1. **Unlocked Bootloader** (this is required).
-2. A Windows or Linux PC.
-3. **SP Flash Tool**: [Download SP Flash Tool](https://spflashtool.com/)
-4. USB Cable and the proper drivers installed for MediaTek.
-5. A full **backup** of your phone.
-
----
-
-## Step-by-Step Instructions (Root with Magisk)
-
-### Step 1: Install Drivers (Windows)
-
-- Install **MediaTek VCOM Drivers**:
-  - You can find preloader drivers here: https://gsmusbdrivers.com/mediatek
-  
-- Disable driver signature enforcement in Windows if needed.
+- Ulefone Power Armor 14 Pro
+- USB cable and PC (Windows or Linux)
+- ADB & Fastboot installed on your computer
+- MTK/Android USB drivers installed
+- Battery charged above 50%
+- Magisk v26.4 APK (from official GitHub)
+- Patience and care
 
 ---
 
-### Step 2: Install SP Flash Tool
+## Step-by-Step Instructions
 
-- Download and extract SP Flash Tool from [official site](https://spflashtool.com/)
-- Run `flash_tool.exe` as Administrator (Windows)
+### 1. Enable Developer Mode and USB Debugging
 
----
-
-### Step 3: Load Scatter File
-
-- In SP Flash Tool, click **“Choose”** next to **Scatter-loading File**.
-- Select:  
-  `firmware/MT6768_Android_scatter.txt`
+1. On your phone, go to **Settings > About phone**.
+2. Tap **Build number** repeatedly until developer mode is enabled.
+3. Go to **Settings > Developer options**.
+4. Enable both **OEM Unlocking** and **USB Debugging**.
 
 ---
 
-### Step 4: Replace Boot Image
+### 2. Unlock Bootloader (⚠️ This will erase all your data)
 
-- In the partition list, **uncheck everything** except the **boot** partition.
-- Click on the boot line, and **manually select** `img/magisk_patched.img`
+1. Connect your phone to your PC via USB.
+2. Open a terminal or command prompt.
+3. Type:
+   ```bash
+   adb devices
 
----
+Confirm the debug prompt on your phone if asked.
 
-### Step 5: Flash the Patched Boot
+4. Reboot to bootloader:
 
-- Set **Download Only** mode (top dropdown).
-- Power off your phone **completely**.
-- Click **Download** (green arrow).
-- Connect your phone via USB **while powered off**.
-- Wait until the **green check** appears.
+adb reboot bootloader
 
----
 
-### Step 6: Reboot and Verify Root
+5. Once in bootloader mode, unlock it:
 
-- Power on your phone normally.
-- Install the **Magisk App** on your phone.
-- Open it — it should say **“Magisk Installed”** with root access enabled.
+fastboot flashing unlock
 
----
 
-## Restore Stock Boot Image (Optional)
+6. Confirm on your phone using the volume keys.
 
-If something goes wrong or you want to unroot your phone:
 
-1. Repeat the steps above.
-2. In **Step 4**, select `img/boot.img` instead of `magisk_patched.img`.
-3. Flash as before.
-4. Root will be removed.
+7. Wait until the device wipes all data and reboots automatically.
+
+
+
 
 ---
 
-## Firmware Use (Optional Full Flash)
+3. Flash the Magisk Patched Boot Image
 
-You can also use the provided full firmware in `firmware/` to restore your phone to factory condition. Use this only if:
+1. Set up your phone again and re-enable USB Debugging.
 
-- Your phone is bricked.
-- You want to completely revert all changes.
-- You want to reinstall the stock system.
 
-**Warning:** This will erase all data.
+2. Reboot to bootloader again:
 
----
+adb reboot bootloader
 
-## Testing and Status
 
-- This has been tested on a **real Ulefone Power Armor 14 Pro**.
-- Root access confirmed working with:
-  - `Magisk`
-  - `Root Checker`
-  - `Termux su`
-- Use at your own risk.
+3. Extract magisk_patched.zip to get magisk_patched.img.
 
----
 
-## License
+4. Flash the patched image:
 
-This repository is licensed under the **MIT License**.
+fastboot flash boot magisk_patched.img
+
+
+5. Reboot the device:
+
+fastboot reboot
+
+
+
 
 ---
 
-## Author
+4. Install Magisk on Device
 
+1. Download Magisk v26.4 APK from official GitHub.
+
+
+2. Transfer the APK to your phone and install it manually.
+
+
+3. Open Magisk to verify if root access is active.
+
+
+
+
+---
+
+Optional – Restore Original Boot
+
+If something fails or you want to unroot your device:
+
+1. Extract boot.zip to obtain boot.img.
+
+
+2. Flash the original image:
+
+adb reboot bootloader
+fastboot flash boot boot.img
+fastboot reboot
+
+
+
+
+---
+
+Optional – Play Integrity / SafetyNet
+
+For apps that detect root (banking, Google Wallet, etc.):
+
+Enable Zygisk in Magisk settings
+
+Install the following modules:
+
+MagiskHide Props Config
+
+Universal SafetyNet Fix
+
+
+Use LSPosed (optional) for deeper system spoofing
+
+Clear Play Store data after applying modules
+
+
+
+---
+
+Tested On
+
+Device: Ulefone Power Armor 14 Pro
+
+Chipset: MediaTek MT6768 (Helio G85)
+
+Firmware: Stock Android 11/12
+
+Magisk: v26.4
+
+
+
+---
+
+License
+
+This repository is open-source under the MIT License.
+
+
+---
+
+Support
+
+If you encounter issues, you can:
+
+Open an issue on this GitHub repository.
+
+Reflash the original firmware (scatter + SP Flash Tool).
+
+Restore stock boot image if needed.
 Maintained by: **[paulnejaa](https://github.com/paulnejaa)**  
-Contact: `jeremiasnejanky360@gmail.com`
+
