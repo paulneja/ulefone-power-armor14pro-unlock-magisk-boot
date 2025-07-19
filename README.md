@@ -7,7 +7,7 @@ These files can be used to root your device using **SP Flash Tool** on Windows o
 
 ---
 
-## 🔧 Included Files
+##  Included Files
 
 - `/img/boot.img` — Original unmodified boot image.
 - `/img/magisk_patched.img` — Boot image patched using Magisk.
@@ -16,7 +16,7 @@ These files can be used to root your device using **SP Flash Tool** on Windows o
 
 ---
 
-## 📱 Device Information
+## Device Information
 
 - **Model:** Ulefone Power Armor 14 Pro  
 - **Chipset:** MediaTek Helio G85 (MT6768)  
@@ -26,7 +26,7 @@ These files can be used to root your device using **SP Flash Tool** on Windows o
 
 ---
 
-## ⚠️ Warnings & Risks
+## Warnings & Risks
 
 - Rooting **voids the warranty** of your device.
 - A wrong flash can **brick your phone**. Always double-check.
@@ -35,7 +35,7 @@ These files can be used to root your device using **SP Flash Tool** on Windows o
 
 ---
 
-## ✅ Prerequisites
+## Prerequisites
 
 1. **Unlocked Bootloader** (this is required).
 2. A Windows or Linux PC.
@@ -45,7 +45,7 @@ These files can be used to root your device using **SP Flash Tool** on Windows o
 
 ---
 
-## 🧩 Step-by-Step Instructions (Root with Magisk)
+## Step-by-Step Instructions (Root with Magisk)
 
 ### Step 1: Install Drivers (Windows)
 
@@ -96,7 +96,7 @@ These files can be used to root your device using **SP Flash Tool** on Windows o
 
 ---
 
-## 🔄 Restore Stock Boot Image (Optional)
+## Restore Stock Boot Image (Optional)
 
 If something goes wrong or you want to unroot your phone:
 
@@ -107,7 +107,7 @@ If something goes wrong or you want to unroot your phone:
 
 ---
 
-## 📦 Firmware Use (Optional Full Flash)
+## Firmware Use (Optional Full Flash)
 
 You can also use the provided full firmware in `firmware/` to restore your phone to factory condition. Use this only if:
 
@@ -119,7 +119,7 @@ You can also use the provided full firmware in `firmware/` to restore your phone
 
 ---
 
-## 🧪 Testing and Status
+## Testing and Status
 
 - This has been tested on a **real Ulefone Power Armor 14 Pro**.
 - Root access confirmed working with:
@@ -130,13 +130,13 @@ You can also use the provided full firmware in `firmware/` to restore your phone
 
 ---
 
-## 📜 License
+## License
 
 This repository is licensed under the **MIT License**.
 
 ---
 
-## ✉️ Author
+## Author
 
 Maintained by: **[paulnejaa](https://github.com/paulnejaa)**  
 Contact: `jeremiasnejanky360@gmail.com`
